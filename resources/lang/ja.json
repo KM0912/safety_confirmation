@@ -2,6 +2,7 @@
     "Name": "ユーザー名",
     "Email Address": "メールアドレス",
     "Password": "パスワード",
+    "Confirm Password": "パスワードの確認",
     "Login": "ログイン",
     "Register": "新規登録"
 }
