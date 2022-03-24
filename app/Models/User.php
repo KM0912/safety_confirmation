@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * レコード作成時に自動的にタイムスタンプ(created_at, updated_at)を登録するかどうか
+     * 
+     * @var bool
+     */
+    public $timestamps = false;
+    
 }
