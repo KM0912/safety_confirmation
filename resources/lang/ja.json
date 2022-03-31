@@ -4,5 +4,9 @@
     "Password": "パスワード",
     "Confirm Password": "パスワードの確認",
     "Login": "ログイン",
-    "Register": "新規登録"
+    "Register": "新規登録",
+    "Safety report": "安否報告",
+    "Comment": "コメント",
+    "Report": "報告"
+
 }
