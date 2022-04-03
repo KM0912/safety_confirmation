@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SafetyInformation extends Model
+class SafetyInformationHistory extends Model
 {
-    
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'comment'
     ];
-
-    //userテーブルとリレーションを設定
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

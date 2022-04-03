@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('safety_information', function (Blueprint $table) {
+        Schema::create('safety_information_histories', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unique();
+            $table->integer('user_id');
             $table->string('comment');
 
             // デフォルト値を設定しないとinsertやupdateメソッドを使用した際に日付が更新されない
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('safety_information');
+        Schema::dropIfExists('safety_information_histories');
     }
 };
