@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// 使用しないルーティングも含まれるのでコメントアウト
+// Auth::routes();
+
+// 認証関連
+Route::get('login', [Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [Auth\LoginController::class, 'login']);
+Route::post('logout', [Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('register', [Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [Auth\RegisterController::class, 'register']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/safety_registration', [App\Http\Controllers\SafetyInformationController::class, 'add'])->name('safety_registration');
