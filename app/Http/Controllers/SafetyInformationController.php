@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class SafetyInformationController extends Controller
 {
     //
-    public function add ()
+    public function create ()
     {
         return view("safety_registration");
     }
