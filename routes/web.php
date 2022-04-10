@@ -28,6 +28,9 @@ Route::post('logout', [Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('register', [Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [Auth\RegisterController::class, 'register']);
 
-Route::get('/safety_registration', [App\Http\Controllers\SafetyInformationController::class, 'create'])->name('safety_registration');
-Route::post('/store',  [App\Http\Controllers\SafetyInformationController::class, 'store'])->name('store');
-Route::get('/safety_status',  [App\Http\Controllers\SafetyInformationController::class, 'safety_status'])->name('safety_status');
+// ログイン中のユーザーのみが閲覧可能なルーティング
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/safety_registration', [App\Http\Controllers\SafetyInformationController::class, 'create'])->name('safety_registration');
+    Route::post('/store',  [App\Http\Controllers\SafetyInformationController::class, 'store'])->name('store');
+    Route::get('/safety_status',  [App\Http\Controllers\SafetyInformationController::class, 'safety_status'])->name('safety_status');
+});
