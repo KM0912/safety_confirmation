@@ -30,16 +30,23 @@ class SafetyInformationController extends Controller
         $user = Auth::user();
         $inputs = $request->all();
         
+        // dd($inputs);
         // 安否状況を更新 or 作成
         SafetyInformation::updateOrCreate(
             ['user_id' => $user->id],
-            ['comment' => $inputs['comment']]
+            ['own_condition' => intval($inputs['own-condition']),
+            'family_condition' => $inputs['family-condition'],
+            'go_to_work' => $inputs['go-to-work'],
+            'comment' => $inputs['comment']],
         );
 
         // 安否状況の履歴に登録
         SafetyInformationHistory::create([
-            'user_id' => $user->id,
-            'comment' => $inputs['comment']
+            'user_id'           => $user->id,
+            'own_condition'     => $inputs['own-condition'],
+            'family_condition'  => $inputs['family-condition'],
+            'go_to_work'        => $inputs['go-to-work'],
+            'comment'           => $inputs['comment']
         ]);
 
         return redirect()->route('safety_status');

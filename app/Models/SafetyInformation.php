@@ -10,6 +10,9 @@ class SafetyInformation extends Model
     
     protected $fillable = [
         'user_id',
+        'own_condition',
+        'family_condition',
+        'go_to_work',
         'comment'
     ];
 
