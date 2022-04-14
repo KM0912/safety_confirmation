@@ -191,7 +191,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'SafetyInformationConst' =>  App\Consts\SafetyInformationConst::class,
     ])->toArray(),
 
 ];
