@@ -13,12 +13,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">{{ __('Name') }}</th>
-                                <th scope="col">自身の安否</th>
-                                <th scope="col">家族の安否</th>
-                                <th scope="col">出社の可否</th>
-                                <th scope="col">{{ __('Comment') }}</th>
-                            <th scope="col">{{ __('Updatede at') }}</th>
+                                <th scope="col" style="width: 19%">{{ __('Name') }}</th>
+                                <th scope="col" style="width: 12%">自身の安否</th>
+                                <th scope="col" style="width: 12%">家族の安否</th>
+                                <th scope="col" style="width: 12%">出社の可否</th>
+                                <th scope="col" style="width: 25%">{{ __('Comment') }}</th>
+                                <th scope="col" style="width: 20%">{{ __('Updatede at') }}</th>
                             </tr>
                         </thead>
                         <tbody>
