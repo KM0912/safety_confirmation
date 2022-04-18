@@ -32,5 +32,5 @@ Route::post('register', [Auth\RegisterController::class, 'register']);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/safety_registration', [App\Http\Controllers\SafetyInformationController::class, 'create'])->name('safety_registration');
     Route::post('/store',  [App\Http\Controllers\SafetyInformationController::class, 'store'])->name('store');
-    Route::get('/safety_status',  [App\Http\Controllers\SafetyInformationController::class, 'safety_status'])->name('safety_status');
+    Route::get('/safety_status',  [App\Http\Controllers\SafetyInformationController::class, 'viewAllUserStatus'])->name('safety_status');
 });

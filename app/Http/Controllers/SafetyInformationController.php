@@ -14,16 +14,7 @@ class SafetyInformationController extends Controller
     {
         return view("safety_registration");
     }
-
-    //
-    public function safety_status ()
-    {
-
-        $status = SafetyInformation::all();
-
-        return view("safety_status", compact('status'));
-    }
-
+    
     //
     public function store (Request $request)
     {
@@ -32,12 +23,20 @@ class SafetyInformationController extends Controller
         
         // 安否状況を更新 or 作成
         SafetyInformation::updateOrCreate(['user_id' => $user->id], $inputs);
-
+        
         // 安否状況の履歴に登録
         $inputs = ['user_id' => $user->id] + $inputs;   // user_idはPOSTしていないので配列に追加
         SafetyInformationHistory::create($inputs);
-
+        
         return redirect()->route('safety_status');
     }
+    
+    //
+    public function viewAllUserStatus ()
+    {
 
+        $status = SafetyInformation::all();
+
+        return view("safety_status", compact('status'));
+    }
 }
