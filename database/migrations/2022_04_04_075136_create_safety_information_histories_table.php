@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('safety_information_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('comment');
+            $table->string('comment', 191);
 
             // デフォルト値を設定しないとinsertやupdateメソッドを使用した際に日付が更新されない
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
